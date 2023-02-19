@@ -1,17 +1,8 @@
-import random
+def tower_of_hanoi(num_disks, source, aux, target):
+    if num_disks > 0:
+        tower_of_hanoi(num_disks - 1, source, target, aux)
+        print(f"Move disk {num_disks} from {source} to {target}")
+        tower_of_hanoi(num_disks - 1, aux, source, target)
 
 
-def insertion_sort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
-    return arr
-
-
-print(insertion_sort([]))
-print(insertion_sort([1, 2, 3, 4, 5]))
-print(insertion_sort([random.randint(0, 1000) for _ in range(200)]))
+tower_of_hanoi(4, "Source", "Auxillary", "Target")

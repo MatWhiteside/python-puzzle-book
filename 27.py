@@ -1,27 +1,12 @@
-def find_pairs(A, N):
-    pairs = []
-    for i in range(len(A)):
-        for j in range(i + 1, len(A)):
-            if A[i] + A[j] == N:
-                pairs.append((A[i], A[j]))
-    return pairs
+def find_adjacent_nodes(adj_matrix, start_node):
+    adj_nodes = []
+    for i, val in enumerate(adj_matrix[start_node]):
+        if val == 1:
+            adj_nodes.append(i)
+    return adj_nodes
 
-
-print(find_pairs([1, 9, 2, 8, 3, 7, 4, 6, 5, 5], 10))
-print(find_pairs([11, 12, 13, 14, 15], 10))
-
-
-# Bonus solution
-def find_pairs_bonus(A, N):
-    pairs = []
-    seen = set()
-    for x in A:
-        if N - x in seen:
-            pairs.append((x, N - x))
-        else:
-            seen.add(x)
-    return pairs
-
-
-print(find_pairs_bonus([1, 9, 2, 8, 3, 7, 4, 6, 5, 5], 10))
-print(find_pairs_bonus([11, 12, 13, 14, 15], 10))
+print(find_adjacent_nodes([
+    [1, 1, 1],
+    [1, 0, 0],
+    [1, 0, 0]
+], 0))

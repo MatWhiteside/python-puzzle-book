@@ -1,14 +1,7 @@
-def contains_python(string):
-    string = string.lower()
-    python_chars = "python"
-    for i in range(len(string) - len(python_chars) + 1):
-        if sorted(string[i:i + len(python_chars)]) == sorted(python_chars):
-            return True
-    return False
+def fibonacci(n):
+    if n in (0, 1):
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-print(contains_python("pYThon"))
-print(contains_python("Nohtyp"))
-print(contains_python("pythZon"))
-print(contains_python("AAApythonAAA"))
-print(contains_python("AAApythoAnAA"))
+print(fibonacci(4))

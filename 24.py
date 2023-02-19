@@ -1,8 +1,11 @@
-def gcd(a, b):
-    if b == 0:
-        return a
-    return gcd(b, a % b)
+def my_zip(list1, list2):
+    zipped = []
+    for i in range(min(len(list1), len(list2))):
+        zipped.append((list1[i], list2[i]))
+    return zipped
 
 
-print(gcd(36, 8))
-print(gcd(5, 25))
+print(my_zip([1, 2, 3, 4], [5, 6, 7, 8]))
+print(my_zip([], []))
+print(my_zip([1, 2, 3], [5, 6, 7, 8]))
+print(my_zip([1, 2, 3, 4], [5, 6, 7]))

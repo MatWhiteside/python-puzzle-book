@@ -1,14 +1,5 @@
-def censor(strings):
-    censored_strings = []
-    for string in strings:
-        censored_string = ""
-        for letter in string:
-            if letter.upper() in ["P", "Y", "T", "H", "O", "N"]:
-                censored_string += "X"
-            else:
-                censored_string += letter
-        censored_strings.append(censored_string)
-    return censored_strings
+def reverse_first_five(lst):
+    return lst[:5][::-1] + lst[5:]
 
 
-print(censor(["python", "hello", "HELLO"]))
+print(reverse_first_five([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))

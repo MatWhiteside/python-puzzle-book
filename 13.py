@@ -1,11 +1,12 @@
-def filter_palindromes(strings):
-    palindromes = []
+def filter_vowels(strings):
+    def has_vowel(string):
+        vowels = "aeiouAEIOU"
+        for char in string:
+            if char in vowels:
+                return True
+        return False
 
-    for string in strings:
-        if string == string[::-1]:
-            palindromes.append(string)
-
-    return palindromes
+    return [s for s in strings if has_vowel(s)]
 
 
-print(filter_palindromes(["cat", "dog", "racecar", "deified", "giraffe"]))
+print(filter_vowels(["apple", "banana", "zyxvb"]))

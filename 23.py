@@ -1,15 +1,15 @@
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
+def xor(s1, s2):
+    result = ""
+    for i in range(min(len(s1), len(s2))):
+        if s1[i] == s2[i]:
+            result += "0"
+        else:
+            result += "1"
+    return result
 
 
-def find_primes(numbers):
-    return [n for n in numbers if is_prime(n)]
-
-
-print(find_primes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))  # should print [2, 3, 5, 7]
-print(find_primes(list(range(100))))  # should print [2, 3, 5, 7]
+print(xor("1111", "1111"))
+print(xor("1111", "0000"))
+print(xor("0000", "1111"))
+print(xor("0000", "0000"))
+print(xor("00000", "0000"))

@@ -1,9 +1,11 @@
-def is_happy(s):
-    for i in range(len(s) - 2):
-        if s[i] == s[i + 1] or s[i] == s[i + 2] or s[i + 1] == s[i + 2]:
-            return False
-    return True
+def filter_palindromes(strings):
+    palindromes = []
+
+    for string in strings:
+        if string == string[::-1]:
+            palindromes.append(string)
+
+    return palindromes
 
 
-print(is_happy("abcdefg"))
-print(is_happy("aaabcdef"))
+print(filter_palindromes(["cat", "dog", "racecar", "deified", "giraffe"]))

@@ -1,11 +1,21 @@
-def my_zip(list1, list2):
-    zipped = []
-    for i in range(min(len(list1), len(list2))):
-        zipped.append((list1[i], list2[i]))
-    return zipped
+def check_tic_tac_toe(board):
+    # Check rows
+    for row in board:
+        if row[0] == row[1] == row[2]:
+            return row[0]
+    # check columns
+    for i in range(3):
+        if board[0][i] == board[1][i] == board[2][i]:
+            return board[0][i]
+    # Check diagonals
+    if board[0][0] == board[1][1] == board[2][2]:
+        return board[0][0]
+    if board[0][2] == board[1][1] == board[2][0]:
+        return board[0][2]
+    return None
 
 
-print(my_zip([1, 2, 3, 4], [5, 6, 7, 8]))
-print(my_zip([], []))
-print(my_zip([1, 2, 3], [5, 6, 7, 8]))
-print(my_zip([1, 2, 3, 4], [5, 6, 7]))
+print(check_tic_tac_toe([["X", "X", "X"], ["O", "X", "O"], ["X", "O", "O"]]))
+print(check_tic_tac_toe([["X", "O", "O"], ["O", "X", ""], ["X", "", "X"]]))
+print(check_tic_tac_toe([["X", "O", "O"], ["O", "O", ""], ["X", "O", "O"]]))
+print(check_tic_tac_toe([["X", "O", "O"], ["O", "X", ""], ["X", "O", "O"]]))

@@ -1,5 +1,13 @@
-def reverse_first_five(lst):
-    return lst[:5][::-1] + lst[5:]
+def string_to_ascii(string):
+    return [ord(char) for char in string]
 
 
-print(reverse_first_five([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+print(string_to_ascii("Programming puzzles!"))
+
+
+# BONUS SOLUTION
+def ascii_to_string(ascii):
+    return "".join([chr(char) for char in ascii])
+
+
+print(ascii_to_string([80, 114, 111, 33]))

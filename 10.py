@@ -1,13 +1,14 @@
-def string_to_ascii(string):
-    return [ord(char) for char in string]
+def second_largest(numbers):
+    if len(numbers) < 2:
+        return None
+
+    max_num = max(numbers)
+    numbers.remove(max_num)
+    second_max = max(numbers)
+
+    return second_max
 
 
-print(string_to_ascii("Programming puzzles!"))
-
-
-# BONUS SOLUTION
-def ascii_to_string(ascii):
-    return "".join([chr(char) for char in ascii])
-
-
-print(ascii_to_string([80, 114, 111, 33]))
+print(second_largest([1, 2, 3, 4, 5]))
+print(second_largest([3, 45, 345, 435, 345, 43, 56, 34, 234, 34]))
+print(second_largest([1]))
