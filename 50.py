@@ -1,13 +1,12 @@
-def max_number(s):
-    if len(s) < 4:
-        raise ValueError("Input string should be of length greater than 3")
-    nums = list(map(int, s))
-    max_num = float('-inf')
-    for i, num1 in enumerate(nums):
-        for j, num2 in enumerate(nums[i+1:]):
-            for k, num4 in enumerate(nums[i+j+2:]):
-                for l, num3 in enumerate(nums[i+j+k+3:]):
-                    max_num = max(max_num, num1+num2*num3/num4, num1*num2+num3/num4, num1*num2/num3+num4)
-    return max_num
+def min_coins(coins, target):
+    dp = [float('inf')] * (target + 1)
+    dp[0] = 0
+    for t in range(1, target + 1):
+        for c in coins:
+            if t - c >= 0:
+                dp[t] = min(dp[t], dp[t - c] + 1)
+    return dp[target]
 
-print(max_number("123456789"))
+print(min_coins([1, 6], 6))
+print(min_coins([1, 2], 6))
+print(min_coins([2, 1], 13))
