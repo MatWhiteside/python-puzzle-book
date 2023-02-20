@@ -1,55 +1,36 @@
-def solve_maze(maze, start, end):
-    row, col = len(maze), len(maze[0])
-    queue = []
-    queue.append(start)
-    maze[start[0]][start[1]] = 2
-
-    while queue:
-        curr_x, curr_y = queue.pop(0)
-
-        if curr_x == end[0] and curr_y == end[1]:
-            return True
-
-        for x, y in [
-            (curr_x + 1, curr_y),
-            (curr_x - 1, curr_y),
-            (curr_x, curr_y + 1),
-            (curr_x, curr_y - 1),
-        ]:
-            if 0 <= x < row and 0 <= y < col and maze[x][y] == 0:
-                queue.append((x, y))
-                maze[x][y] = 2
-
-    return False
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 
-start = (0, 1)
-end = (9, 1)
+def morris_inorder(root):
+    current = root
+    while current is not None:
+        if current.left is None:
+            yield current.val
+            current = current.right
+        else:
+            predecessor = current.left
+            while predecessor.right is not None and predecessor.right is not current:
+                predecessor = predecessor.right
+            if predecessor.right is None:
+                predecessor.right = current
+                current = current.left
+            else:
+                predecessor.right = None
+                yield current.val
+                current = current.right
 
-solvable_maze = [
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-    [1, 1, 0, 0, 1, 0, 1, 1, 0, 1],
-    [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-]
-print(solve_maze(solvable_maze, start, end))
 
-unsolvable_maze = [
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-    [1, 1, 0, 1, 1, 0, 1, 1, 0, 1],
-    [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-]
-print(solve_maze(unsolvable_maze, start, end))
+one = TreeNode(1, None, None)
+three = TreeNode(3, None, None)
+two = TreeNode(2, one, three)
+five = TreeNode(5, None, None)
+seven = TreeNode(7, None, None)
+six = TreeNode(6, five, seven)
+four = TreeNode(4, two, six)
+
+for node in morris_inorder(four):
+    print(node)

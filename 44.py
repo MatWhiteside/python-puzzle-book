@@ -1,32 +1,22 @@
-def binary_search(sorted_list, value_to_find):
-    low = 0
-    high = len(sorted_list) - 1
-    mid = 0
-
-    while low <= high:
-
-        mid = (high + low) // 2
-
-        # If x is greater, ignore left half
-        if value_to_find > sorted_list[mid]:
-            low = mid + 1
-
-        # If x is smaller, ignore right half
-        elif value_to_find < sorted_list[mid]:
-            high = mid - 1
-
-        # x is present at mid
-        else:
-            return mid
-
-    # If we reach here, then the element was not present
-    return -1
+def quicksort(array, low, high):
+    if low < high:
+        pivot_index = partition(array, low, high)
+        quicksort(array, low, pivot_index - 1)
+        quicksort(array, pivot_index + 1, high)
 
 
-sorted_list = [2, 3, 4, 10, 40]
-value_to_find = 0
-print(binary_search(sorted_list, value_to_find))
+def partition(array, low, high):
+    pivot = array[high]
+    i = low - 1
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i = i + 1
+            array[i], array[j] = array[j], array[i]
+    array[i + 1], array[high] = array[high], array[i + 1]
+    return i + 1
 
-sorted_list = [2, 3, 4, 10, 40]
-value_to_find = 10
-print(binary_search(sorted_list, value_to_find))
+
+arr = [5, 7, 8, 1, 2, 4, 99, 77, 56, 43, 12, 98]
+quicksort(arr, 0, len(arr) - 1)
+
+print(arr)
