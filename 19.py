@@ -1,9 +1,9 @@
-def check_tic_tac_toe(board):
+def check_tic_tac_toe(board: list[list[str]]) -> str | None:
     # Check rows
     for row in board:
         if row[0] == row[1] == row[2]:
             return row[0]
-    # check columns
+    # Check columns
     for i in range(3):
         if board[0][i] == board[1][i] == board[2][i]:
             return board[0][i]

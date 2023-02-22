@@ -1,4 +1,6 @@
-def climb_stairs(n):
+def climb_stairs(n: int) -> int:
+    if n == 0:
+        return 0
     if n == 1:
         return 1
     if n == 2:
@@ -17,7 +19,9 @@ print(climb_stairs(4))
 
 
 # Challenge #1
-def climb_stairs_with_output(n):
+def climb_stairs_with_output(n: int) -> list[list[int]]:
+    if n == 0:
+        return []
     if n == 1:
         return [[1]]
     if n == 2:
@@ -37,10 +41,11 @@ def climb_stairs_with_output(n):
 
 
 print(climb_stairs_with_output(4))
+print(climb_stairs_with_output(0))
 
 
 # Challenge #2
-def climb_stairs_with_three_steps_allowed(n):
+def climb_stairs_with_three_steps_allowed(n: int) -> int:
     if n == 0:
         return 0
     elif n == 1:

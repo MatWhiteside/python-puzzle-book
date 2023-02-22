@@ -1,11 +1,20 @@
+from __future__ import annotations
+from typing import Iterator
+
+
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(
+        self,
+        val: int = 0,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
+    ) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
-def morris_inorder(root):
+def morris_inorder(root: TreeNode) -> Iterator[int]:
     current = root
     while current is not None:
         if current.left is None:

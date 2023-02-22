@@ -1,11 +1,11 @@
-def quicksort(array, low, high):
+def quicksort(array: list[int], low: int, high: int) -> None:
     if low < high:
         pivot_index = partition(array, low, high)
         quicksort(array, low, pivot_index - 1)
         quicksort(array, pivot_index + 1, high)
 
 
-def partition(array, low, high):
+def partition(array: list[int], low: int, high: int) -> int:
     pivot = array[high]
     i = low - 1
     for j in range(low, high):

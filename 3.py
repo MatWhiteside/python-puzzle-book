@@ -1,4 +1,4 @@
-def sum_even(numbers):
+def sum_even(numbers: list[int]) -> int:
     return sum([x for x in numbers if x % 2 == 0])
 
 

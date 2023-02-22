@@ -11,7 +11,7 @@ B = [[10, 15], [5, 1]]
 # Output: [[35, 33], [65, 65]]
 
 
-def matrix_multiply(left, right):
+def matrix_multiply(left: list[list[int]], right: list[list[int]]) -> list[list[int]]:
     left_num_rows = len(left)
     left_num_cols = len(left[0])
     right_num_cols = len(right[0])

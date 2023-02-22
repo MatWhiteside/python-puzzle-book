@@ -1,4 +1,4 @@
-def sum_with_none(x, y):
+def sum_with_none(x: int, y: int) -> int | None:
     if x + y < 50:
         return None
     return x + y

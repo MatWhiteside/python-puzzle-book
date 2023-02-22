@@ -1,4 +1,4 @@
-def binary_search(sorted_list, value_to_find):
+def binary_search(sorted_list: list[int], value_to_find: int) -> int:
     low = 0
     high = len(sorted_list) - 1
     mid = 0
@@ -23,10 +23,7 @@ def binary_search(sorted_list, value_to_find):
     return -1
 
 
-sorted_list = [2, 3, 4, 10, 40]
-value_to_find = 0
-print(binary_search(sorted_list, value_to_find))
+searchable_list = [2, 3, 4, 10, 40]
 
-sorted_list = [2, 3, 4, 10, 40]
-value_to_find = 10
-print(binary_search(sorted_list, value_to_find))
+print(binary_search(searchable_list, 0))
+print(binary_search(searchable_list, 10))

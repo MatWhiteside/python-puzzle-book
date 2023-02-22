@@ -1,4 +1,4 @@
-def reverse_first_five(lst):
+def reverse_first_five(lst: list[int]) -> list[int]:
     return lst[:5][::-1] + lst[5:]
 
 

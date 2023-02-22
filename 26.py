@@ -1,4 +1,7 @@
-def rotate_list_left(lst, positions):
+from typing import Any
+
+
+def rotate_list_left(lst: list[Any], positions: int) -> list[Any]:
     return lst[positions:] + lst[:positions]
 
 

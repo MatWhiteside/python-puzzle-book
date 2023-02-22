@@ -1,4 +1,4 @@
-def reverse_elements(numbers):
+def reverse_elements(numbers: list[int]) -> list[int]:
     return numbers[::-1]
 
 

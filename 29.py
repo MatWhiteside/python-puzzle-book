@@ -1,4 +1,4 @@
-def tap_code(input_code):
+def tap_code(input_code: str) -> str:
     tap_code_map = {
         "a": ". .",
         "b": ". ..",

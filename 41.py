@@ -15,7 +15,7 @@ roman_map = {
 }
 
 
-def int_to_roman(num):
+def int_to_roman(num: int) -> str:
     roman = ""
     for key in sorted(roman_map.keys(), reverse=True):
         while num >= key:
@@ -24,11 +24,11 @@ def int_to_roman(num):
     return roman
 
 
-def roman_to_int(s):
+def roman_to_int(s: str) -> int:
     integer = 0
     i = 0
     while i < len(s):
-        if i + 1 < len(s) and s[i : i + 2] in roman_map.values():
+        if i + 1 < len(s) and s[i:i + 2] in roman_map.values():
             integer += [k for k, v in roman_map.items() if v == s[i:i + 2]][0]
             i += 2
         else:
@@ -37,7 +37,7 @@ def roman_to_int(s):
     return integer
 
 
-def int_roman_converter(to_convert):
+def int_roman_converter(to_convert: str | int) -> int | str:
     # roman numerals to int
     if isinstance(to_convert, str):
         return roman_to_int(to_convert)
@@ -46,4 +46,6 @@ def int_roman_converter(to_convert):
 
 
 for i in range(1, 100):
-    print(f"{i} = {int_roman_converter(i)} = {int_roman_converter(int_roman_converter(i))}")
+    print(
+        f"{i} = {int_roman_converter(i)} = {int_roman_converter(int_roman_converter(i))}"
+    )

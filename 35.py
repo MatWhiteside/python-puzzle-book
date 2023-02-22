@@ -1,4 +1,4 @@
-def split_parentheses(s):
+def split_parentheses(s: str) -> list[str]:
     stack = []
     result = []
     start = 0

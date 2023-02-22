@@ -1,4 +1,4 @@
-def num_digits(n):
+def num_digits(n: int) -> int:
     if n == 0:
         return 0
     return 1 + num_digits(n // 10)

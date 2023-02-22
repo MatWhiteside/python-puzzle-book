@@ -1,4 +1,4 @@
-def find_strings_containing_a(strings):
+def find_strings_containing_a(strings: list[str]) -> list[str]:
     return [s for s in strings if "a" in s]
 
 

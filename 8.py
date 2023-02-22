@@ -1,4 +1,4 @@
-def filter_string_type(lst):
+def filter_string_type(lst: list[str | int]) -> list[str]:
     return [x for x in lst if isinstance(x, str)]
 
 

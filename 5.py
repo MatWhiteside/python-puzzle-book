@@ -1,4 +1,4 @@
-def longest_string(strings):
+def longest_string(strings: list[str]) -> str:
     longest = ""
     for string in strings:
         if len(string) > len(longest):

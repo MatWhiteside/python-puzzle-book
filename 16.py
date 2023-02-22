@@ -1,4 +1,4 @@
-def censor(strings):
+def censor(strings: list[str]) -> list[str]:
     censored_strings = []
     for string in strings:
         censored_string = ""

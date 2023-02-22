@@ -1,4 +1,4 @@
-def contains_python(string):
+def contains_python(string: str) -> bool:
     string = string.lower()
     python_chars = "python"
     for i in range(len(string) - len(python_chars) + 1):

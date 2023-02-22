@@ -1,12 +1,16 @@
-def param_count(*args):
+from typing import Any
+from collections.abc import Iterator
+
+
+def param_count(*args: Any) -> int:
     return len(args)
 
 
 print(param_count(1, 2, 3, 4, 5))
 
 
-# BONUS SOLUTION 1
-def my_zip_one(*iterables):
+# Bonus Solution 1
+def my_zip_one(*iterables: Any) -> list[tuple[Any, ...]]:
     lists = list(iterables)
     shortest_list = float("inf")
     for to_zip_list in lists:
@@ -29,7 +33,7 @@ print(list(my_zip_one([1, 2, 3, 4], [5, 6, 7])))
 
 
 # BONUS SOLUTION 2
-def my_zip_two(*iterables):
+def my_zip_two(*iterables: list[Any]) -> Iterator[tuple[Any, ...]]:
     sentinel = object()
     iterators = [iter(it) for it in iterables]
     while iterators:

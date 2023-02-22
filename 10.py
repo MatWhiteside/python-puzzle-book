@@ -1,4 +1,4 @@
-def second_largest(numbers):
+def second_largest(numbers: list[int]) -> int | None:
     if len(numbers) < 2:
         return None
 

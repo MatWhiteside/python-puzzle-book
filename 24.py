@@ -1,4 +1,7 @@
-def my_zip(list1, list2):
+from typing import Any
+
+
+def my_zip(list1: list[Any], list2: list[Any]) -> list[tuple[Any, Any]]:
     zipped = []
     for i in range(min(len(list1), len(list2))):
         zipped.append((list1[i], list2[i]))

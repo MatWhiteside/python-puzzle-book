@@ -1,4 +1,4 @@
-def add(x, y):
+def add(x: int, y: int) -> int:
     while y != 0:
         carry = x & y
         x = x ^ y

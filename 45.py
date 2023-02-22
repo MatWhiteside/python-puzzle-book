@@ -1,4 +1,4 @@
-def knapsack(items, max_weight):
+def knapsack(items: list[tuple[int, int]], max_weight: int) -> int:
     # Create a matrix to store the maximum value at each weight
     dp = [[0 for x in range(max_weight + 1)] for y in range(len(items) + 1)]
 

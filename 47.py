@@ -1,4 +1,4 @@
-def solve_maze(maze, start, end):
+def solve_maze(maze: list[list[int]], start: tuple[int, int], end: tuple[int, int]) -> bool:
     row, col = len(maze), len(maze[0])
     queue = []
     queue.append(start)

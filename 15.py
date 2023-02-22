@@ -1,4 +1,4 @@
-def filter_palindromes(strings):
+def filter_palindromes(strings: list[str]) -> list[str]:
     palindromes = []
 
     for string in strings:

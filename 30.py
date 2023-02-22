@@ -1,7 +1,7 @@
 import random
 
 
-def find_triplets(numbers):
+def find_triplets(numbers: list[int]) -> list[tuple[int, int, int]]:
     triplets = []
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):

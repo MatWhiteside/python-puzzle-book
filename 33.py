@@ -1,4 +1,4 @@
-def is_prime(n):
+def is_prime(n: int) -> bool:
     if n < 2:
         return False
     for i in range(2, n):
@@ -7,7 +7,7 @@ def is_prime(n):
     return True
 
 
-def find_primes(numbers):
+def find_primes(numbers: list[int]) -> list[int]:
     return [n for n in numbers if is_prime(n)]
 
 
