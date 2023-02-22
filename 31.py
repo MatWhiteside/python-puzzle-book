@@ -12,8 +12,11 @@ print(param_count(1, 2, 3, 4, 5))
 # Bonus Solution 1
 def my_zip_one(*iterables: Any) -> list[tuple[Any, ...]]:
     lists = list(iterables)
-    shortest_list = float("inf")
-    for to_zip_list in lists:
+    if len(lists) == 0:
+        return []
+
+    shortest_list = len(lists[0])
+    for to_zip_list in lists[1:]:
         if len(to_zip_list) < shortest_list:
             shortest_list = len(to_zip_list)
 

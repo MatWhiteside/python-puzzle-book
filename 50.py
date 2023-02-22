@@ -5,7 +5,7 @@ def min_coins(coins: list[int], target: int) -> int:
         for c in coins:
             if t - c >= 0:
                 dp[t] = min(dp[t], dp[t - c] + 1)
-    return dp[target]
+    return int(dp[target])
 
 
 print(min_coins([1, 6], 6))

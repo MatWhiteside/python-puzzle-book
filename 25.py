@@ -1,11 +1,10 @@
 def validate_equation(equation: str) -> bool:
     try:
         num1, operator, num2, _, result = equation.split()
-        num1, num2, result = int(num1), int(num2), int(result)
         if operator == "+":
-            return num1 + num2 == result
+            return int(num1) + int(num2) == int(result)
         if operator == "-":
-            return num1 - num2 == result
+            return int(num1) - int(num2) == int(result)
         return False
     except ValueError:
         return False

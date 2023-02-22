@@ -1,4 +1,4 @@
-def find_pairs(A: list[int], N: int) -> list[int]:
+def find_pairs(A: list[int], N: int) -> list[tuple[int, int]]:
     pairs = []
     for i in range(len(A)):
         for j in range(i + 1, len(A)):
@@ -12,7 +12,7 @@ print(find_pairs([11, 12, 13, 14, 15], 10))
 
 
 # Bonus solution
-def find_pairs_bonus(A: list[int], N: int) -> list[int]:
+def find_pairs_bonus(A: list[int], N: int) -> list[tuple[int, int]]:
     pairs = []
     seen = set()
     for x in A:

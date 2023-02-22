@@ -14,7 +14,7 @@ class TreeNode:
         self.right = right
 
 
-def morris_inorder(root: TreeNode) -> Iterator[int]:
+def morris_inorder(root: TreeNode | None) -> Iterator[int]:
     current = root
     while current is not None:
         if current.left is None:
@@ -40,6 +40,9 @@ five = TreeNode(5, None, None)
 seven = TreeNode(7, None, None)
 six = TreeNode(6, five, seven)
 four = TreeNode(4, two, six)
+
+for node in morris_inorder(None):
+    print(node)
 
 for node in morris_inorder(four):
     print(node)
