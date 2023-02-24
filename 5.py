@@ -1,10 +1,10 @@
-def longest_string(strings: list[str]) -> str:
-    longest = ""
-    for string in strings:
-        if len(string) > len(longest):
-            longest = string
-    return longest
+def get_longest_string(input_strs: list[str]) -> str:
+    longest_string = ""
+    for input_str in input_strs:
+        if len(input_str) > len(longest_string):
+            longest_string = input_str
+    return longest_string
 
 
-print(longest_string(["cat", "dog", "bird", "lizard"]))
-print(longest_string(["cat", "dog", "bird", "wolf"]))
+print(get_longest_string(["cat", "dog", "bird", "lizard"]))
+print(get_longest_string(["cat", "dog", "bird", "wolf"]))

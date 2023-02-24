@@ -1,10 +1,10 @@
-def add(x: int, y: int) -> int:
-    while y != 0:
-        carry = x & y
-        x = x ^ y
-        y = carry << 1
-    return x
+def bitwise_add(num_one: int, num_two: int) -> int:
+    while num_two != 0:
+        carry = num_one & num_two
+        num_one = num_one ^ num_two
+        num_two = carry << 1
+    return num_one
 
 
-print(add(3, 4))
-print(add(255, 256))
+print(bitwise_add(3, 4))
+print(bitwise_add(255, 256))

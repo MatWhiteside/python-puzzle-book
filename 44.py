@@ -1,19 +1,19 @@
-def quicksort(array: list[int], low: int, high: int) -> None:
+def quicksort(input_list: list[int], low: int, high: int) -> None:
     if low < high:
-        pivot_index = partition(array, low, high)
-        quicksort(array, low, pivot_index - 1)
-        quicksort(array, pivot_index + 1, high)
+        pivot_idx = partition(input_list, low, high)
+        quicksort(input_list, low, pivot_idx - 1)
+        quicksort(input_list, pivot_idx + 1, high)
 
 
-def partition(array: list[int], low: int, high: int) -> int:
-    pivot = array[high]
-    i = low - 1
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i = i + 1
-            array[i], array[j] = array[j], array[i]
-    array[i + 1], array[high] = array[high], array[i + 1]
-    return i + 1
+def partition(input_list: list[int], low: int, high: int) -> int:
+    pivot = input_list[high]
+    pivot_idx = low - 1
+    for current_idx in range(low, high):
+        if input_list[current_idx] <= pivot:
+            pivot_idx = pivot_idx + 1
+            input_list[pivot_idx], input_list[current_idx] = input_list[current_idx], input_list[pivot_idx]
+    input_list[pivot_idx + 1], input_list[high] = input_list[high], input_list[pivot_idx + 1]
+    return pivot_idx + 1
 
 
 arr = [5, 7, 8, 1, 2, 4, 99, 77, 56, 43, 12, 98]

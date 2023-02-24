@@ -1,6 +1,6 @@
-def rot13(text: str) -> str:
+def rot13(input_str: str) -> str:
     result = ""
-    for char in text:
+    for char in input_str:
         if char.isalpha():
             a_code = ord("A") if char.isupper() else ord("a")
             char = chr((ord(char) - a_code + 13) % 26 + a_code)

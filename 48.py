@@ -14,23 +14,23 @@ class TreeNode:
         self.right = right
 
 
-def morris_inorder(root: TreeNode | None) -> Iterator[int]:
-    current = root
-    while current is not None:
-        if current.left is None:
-            yield current.val
-            current = current.right
+def traverse_inorder(root_node: TreeNode | None) -> Iterator[int]:
+    current_node = root_node
+    while current_node is not None:
+        if current_node.left is None:
+            yield current_node.val
+            current_node = current_node.right
         else:
-            predecessor = current.left
-            while predecessor.right is not None and predecessor.right is not current:
-                predecessor = predecessor.right
-            if predecessor.right is None:
-                predecessor.right = current
-                current = current.left
+            predecessor_node = current_node.left
+            while predecessor_node.right is not None and predecessor_node.right is not current_node:
+                predecessor_node = predecessor_node.right
+            if predecessor_node.right is None:
+                predecessor_node.right = current_node
+                current_node = current_node.left
             else:
-                predecessor.right = None
-                yield current.val
-                current = current.right
+                predecessor_node.right = None
+                yield current_node.val
+                current_node = current_node.right
 
 
 one = TreeNode(1, None, None)
@@ -41,8 +41,8 @@ seven = TreeNode(7, None, None)
 six = TreeNode(6, five, seven)
 four = TreeNode(4, two, six)
 
-for node in morris_inorder(None):
+for node in traverse_inorder(None):
     print(node)
 
-for node in morris_inorder(four):
+for node in traverse_inorder(four):
     print(node)

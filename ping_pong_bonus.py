@@ -17,17 +17,17 @@ class StaticColour:
 class ChangingColour:
     def __init__(self, colours):
         self.colours = colours
-        self.current_colour_index = 0
+        self.current_colour_idx = 0
         pygame.time.set_timer(pygame.USEREVENT, 500)
 
     def next_colour(self):
-        if self.current_colour_index + 1 < len(self.colours):
-            self.current_colour_index += 1
+        if self.current_colour_idx + 1 < len(self.colours):
+            self.current_colour_idx += 1
         else:
-            self.current_colour_index = 0
+            self.current_colour_idx = 0
 
     def get_colour(self):
-        return self.colours[self.current_colour_index].get_colour()
+        return self.colours[self.current_colour_idx].get_colour()
 
 
 class ColourPicker:

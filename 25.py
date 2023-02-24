@@ -1,10 +1,10 @@
-def validate_equation(equation: str) -> bool:
+def validate_equation(input_equation: str) -> bool:
     try:
-        num1, operator, num2, _, result = equation.split()
+        left_num, operator, right_num, _, result_num = input_equation.split()
         if operator == "+":
-            return int(num1) + int(num2) == int(result)
+            return int(left_num) + int(right_num) == int(result_num)
         if operator == "-":
-            return int(num1) - int(num2) == int(result)
+            return int(left_num) - int(right_num) == int(result_num)
         return False
     except ValueError:
         return False
@@ -14,4 +14,4 @@ print(validate_equation("2 + 3 = 5"))
 print(validate_equation("-5 + -6 = -11"))
 print(validate_equation("-2 - 3 = -5"))
 print(validate_equation("-2 + 3 = -5"))
-print(validate_equation("not a valid equation fgd"))
+print(validate_equation("not a valid equation !"))

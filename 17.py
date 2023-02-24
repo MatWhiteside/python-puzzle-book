@@ -1,9 +1,13 @@
-def is_happy(s: str) -> bool:
-    for i in range(len(s) - 2):
-        if s[i] == s[i + 1] or s[i] == s[i + 2] or s[i + 1] == s[i + 2]:
+def check_if_string_is_happy(input_str: str) -> bool:
+    for i in range(len(input_str) - 2):
+        if (
+            input_str[i] == input_str[i + 1]
+            or input_str[i] == input_str[i + 2]
+            or input_str[i + 1] == input_str[i + 2]
+        ):
             return False
     return True
 
 
-print(is_happy("abcdefg"))
-print(is_happy("aaabcdef"))
+print(check_if_string_is_happy("abcdefg"))
+print(check_if_string_is_happy("aaabcdef"))

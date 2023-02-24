@@ -1,7 +1,7 @@
-def xor(s1: str, s2: str) -> str:
+def xor(input_a: str, input_b: str) -> str:
     result = ""
-    for i in range(min(len(s1), len(s2))):
-        if s1[i] == s2[i]:
+    for i in range(min(len(input_a), len(input_b))):
+        if input_a[i] == input_b[i]:
             result += "0"
         else:
             result += "1"

@@ -1,13 +1,13 @@
-def has_vowel(string: str) -> bool:
+def has_vowel(input_str: str) -> bool:
     vowels = "aeiouAEIOU"
-    for char in string:
-        if char in vowels:
+    for character in input_str:
+        if character in vowels:
             return True
     return False
 
 
-def filter_vowels(strings: list[str]) -> list[str]:
-    return [s for s in strings if has_vowel(s)]
+def filter_strings_with_vowels(input_strs: list[str]) -> list[str]:
+    return [input_str for input_str in input_strs if has_vowel(input_str)]
 
 
-print(filter_vowels(["apple", "banana", "zyxvb"]))
+print(filter_strings_with_vowels(["apple", "banana", "zyxvb"]))

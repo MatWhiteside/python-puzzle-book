@@ -1,6 +1,6 @@
-def remove_vowels(s: str) -> str:
+def remove_vowels(input_str: str) -> str:
     vowels = "aeiouAEIOU"
-    return "".join(c for c in s if c not in vowels)
+    return "".join(character for character in input_str if character not in vowels)
 
 
-print(remove_vowels("Hello, World!"))  # should print "Hll, Wrd!"
+print(remove_vowels("Hello, World!"))

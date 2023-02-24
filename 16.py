@@ -1,14 +1,14 @@
-def censor(strings: list[str]) -> list[str]:
-    censored_strings = []
-    for string in strings:
+def censor_python(input_strs: list[str]) -> list[str]:
+    censored_input_strs = []
+    for input_str in input_strs:
         censored_string = ""
-        for letter in string:
-            if letter.upper() in ["P", "Y", "T", "H", "O", "N"]:
+        for character in input_str:
+            if character.upper() in ["P", "Y", "T", "H", "O", "N"]:
                 censored_string += "X"
             else:
-                censored_string += letter
-        censored_strings.append(censored_string)
-    return censored_strings
+                censored_string += character
+        censored_input_strs.append(censored_string)
+    return censored_input_strs
 
 
-print(censor(["python", "hello", "HELLO"]))
+print(censor_python(["python", "hello", "HELLO"]))

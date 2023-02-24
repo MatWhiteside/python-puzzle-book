@@ -1,67 +1,67 @@
-def climb_stairs(n: int) -> int:
-    if n == 0:
+def solve_climbing_stairs_problem(total_stairs: int) -> int:
+    if total_stairs == 0:
         return 0
-    if n == 1:
+    if total_stairs == 1:
         return 1
-    if n == 2:
+    if total_stairs == 2:
         return 2
 
-    dp = [0] * n
-    dp[0] = 1
-    dp[1] = 2
+    num_combinations = [0] * total_stairs
+    num_combinations[0] = 1
+    num_combinations[1] = 2
 
-    for i in range(2, n):
-        dp[i] = dp[i - 1] + dp[i - 2]
-    return dp[-1]
+    for num_stairs in range(2, total_stairs):
+        num_combinations[num_stairs] = num_combinations[num_stairs - 1] + num_combinations[num_stairs - 2]
+    return num_combinations[-1]
 
 
-print(climb_stairs(4))
+print(solve_climbing_stairs_problem(4))
 
 
 # Challenge #1
-def climb_stairs_with_output(n: int) -> list[list[int]]:
-    if n == 0:
+def solve_climbing_stairs_problem_with_output(total_stairs: int) -> list[list[int]]:
+    if total_stairs == 0:
         return []
-    if n == 1:
+    if total_stairs == 1:
         return [[1]]
-    if n == 2:
+    if total_stairs == 2:
         return [[1, 1], [2]]
 
-    dp = [[] for _ in range(n)]
-    dp[0] = [[1]]
-    dp[1] = [[1, 1], [2]]
+    num_combinations = [[] for _ in range(total_stairs)]
+    num_combinations[0] = [[1]]
+    num_combinations[1] = [[1, 1], [2]]
 
-    for i in range(2, n):
-        for seq in dp[i - 1]:
-            dp[i].append(seq + [1])
-        for seq in dp[i - 2]:
-            dp[i].append(seq + [2])
+    for num_stairs in range(2, total_stairs):
+        for seq in num_combinations[num_stairs - 1]:
+            num_combinations[num_stairs].append(seq + [1])
+        for seq in num_combinations[num_stairs - 2]:
+            num_combinations[num_stairs].append(seq + [2])
 
-    return dp[-1]
+    return num_combinations[-1]
 
 
-print(climb_stairs_with_output(4))
-print(climb_stairs_with_output(0))
+print(solve_climbing_stairs_problem_with_output(4))
+print(solve_climbing_stairs_problem_with_output(0))
 
 
 # Challenge #2
-def climb_stairs_with_three_steps_allowed(n: int) -> int:
-    if n == 0:
+def solve_climbing_stairs_problem_with_three_steps_allowed(total_stairs: int) -> int:
+    if total_stairs == 0:
         return 0
-    elif n == 1:
+    if total_stairs == 1:
         return 1
-    elif n == 2:
+    if total_stairs == 2:
         return 2
-    elif n == 3:
+    if total_stairs == 3:
         return 4
-    dp = [0] * (n + 1)
-    dp[0] = 0
-    dp[1] = 1
-    dp[2] = 2
-    dp[3] = 4
-    for i in range(4, n + 1):
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3]
-    return dp[n]
+    num_combinations = [0] * (total_stairs + 1)
+    num_combinations[0] = 0
+    num_combinations[1] = 1
+    num_combinations[2] = 2
+    num_combinations[3] = 4
+    for num_stairs in range(4, total_stairs + 1):
+        num_combinations[num_stairs] = num_combinations[num_stairs - 1] + num_combinations[num_stairs - 2] + num_combinations[num_stairs - 3]
+    return num_combinations[total_stairs]
 
 
-print(climb_stairs_with_three_steps_allowed(4))
+print(solve_climbing_stairs_problem_with_three_steps_allowed(4))

@@ -1,18 +1,18 @@
-def split_parentheses(s: str) -> list[str]:
+def get_parentheses_groups(input_str: str) -> list[str]:
     stack = []
     result = []
     start = 0
-    for i, c in enumerate(s):
-        if c == "(":
+    for i, char in enumerate(input_str):
+        if char == "(":
             stack.append(i)
-        elif c == ")":
+        elif char == ")":
             if len(stack) > 0:
                 stack.pop()
                 if len(stack) == 0:
-                    result.append(s[start:i + 1].replace(" ", ""))
+                    result.append(input_str[start:i + 1].replace(" ", ""))
                     start = i + 1
     return result
 
 
-print(split_parentheses("(( ))  ((  ) ) (   ((  )))"))
-print(split_parentheses("( ( ( ( ( ( ( ) ) ) ) ) ) )"))
+print(get_parentheses_groups("(( ))  ((  ) ) (   ((  )))"))
+print(get_parentheses_groups("( ( ( ( ( ( ( ) ) ) ) ) ) )"))

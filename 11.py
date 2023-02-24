@@ -1,8 +1,8 @@
-def format_number(num: int) -> str:
-    return "{:,}".format(num)
+def format_number_with_commas(input_num: int) -> str:
+    return f"{input_num:,}"
 
 
-print(format_number(1000000))
-print(format_number(10000))
-print(format_number(999999999999))
-print(format_number(0))
+print(format_number_with_commas(1000000))
+print(format_number_with_commas(10000))
+print(format_number_with_commas(999999999999))
+print(format_number_with_commas(0))

@@ -1,11 +1,11 @@
-def filter_palindromes(strings: list[str]) -> list[str]:
-    palindromes = []
+def filter_palindromes(input_strs: list[str]) -> list[str]:
+    filtered_input_strs = []
 
-    for string in strings:
-        if string == string[::-1]:
-            palindromes.append(string)
+    for input_str in input_strs:
+        if input_str == input_str[::-1]:
+            filtered_input_strs.append(input_str)
 
-    return palindromes
+    return filtered_input_strs
 
 
 print(filter_palindromes(["cat", "dog", "racecar", "deified", "giraffe"]))
