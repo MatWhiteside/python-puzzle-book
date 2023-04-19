@@ -4,7 +4,6 @@ def binary_search(sorted_list: list[int], value_to_find: int) -> int:
     mid = 0
 
     while low <= high:
-
         mid = (high + low) // 2
 
         # If x is greater, ignore left half
@@ -25,5 +24,6 @@ def binary_search(sorted_list: list[int], value_to_find: int) -> int:
 
 searchable_list = [2, 3, 4, 10, 40]
 
-print(binary_search(searchable_list, 0))
 print(binary_search(searchable_list, 10))
+print(binary_search(searchable_list, 0))
+print(binary_search([], 0))

@@ -17,23 +17,32 @@ roman_map = {
 
 def int_to_roman(input_num: int) -> str:
     result = ""
+
     for roman_int_value in sorted(roman_map.keys(), reverse=True):
         while input_num >= roman_int_value:
             result += roman_map[roman_int_value]
             input_num -= roman_int_value
+
     return result
 
 
 def roman_to_int(input_str: str) -> int:
+    roman_map_swapped = {v: k for k, v in roman_map.items()}
+
     result = 0
-    input_idx = 0
-    while input_idx < len(input_str):
-        if input_idx + 1 < len(input_str) and input_str[input_idx:input_idx + 2] in roman_map.values():
-            result += [k for k, v in roman_map.items() if v == input_str[input_idx:input_idx + 2]][0]
-            input_idx += 2
+    prev_value = 0
+
+    for char in input_str:
+        value = roman_map_swapped[char]
+
+        if value > prev_value:
+            result -= prev_value
+            result += value - prev_value
         else:
-            result += [k for k, v in roman_map.items() if v == input_str[input_idx]][0]
-            input_idx += 1
+            result += value
+
+        prev_value = value
+
     return result
 
 
@@ -41,6 +50,7 @@ def int_roman_converter(to_convert: str | int) -> int | str:
     # roman numerals to int
     if isinstance(to_convert, str):
         return roman_to_int(to_convert)
+
     # int to roman numerals
     if isinstance(to_convert, int):
         return int_to_roman(to_convert)
@@ -48,7 +58,8 @@ def int_roman_converter(to_convert: str | int) -> int | str:
     return None
 
 
-for i in range(1, 100):
-    print(
-        f"{i} = {int_roman_converter(i)} = {int_roman_converter(int_roman_converter(i))}"
-    )
+for i in range(1, 5000):
+    is_equal = int_roman_converter(int_roman_converter(i)) == i
+
+    if not is_equal:
+        print(f"{i} is incorrect!")

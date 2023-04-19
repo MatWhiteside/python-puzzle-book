@@ -1,18 +1,22 @@
 def get_parentheses_groups(input_str: str) -> list[str]:
-    stack = []
-    result = []
-    start = 0
+    open_indices = []
+    groups = []
+    start_index = 0
+
     for i, char in enumerate(input_str):
         if char == "(":
-            stack.append(i)
+            open_indices.append(i)
         elif char == ")":
-            if len(stack) > 0:
-                stack.pop()
-                if len(stack) == 0:
-                    result.append(input_str[start:i + 1].replace(" ", ""))
-                    start = i + 1
-    return result
+            if open_indices:
+                open_indices.pop()
+                if not open_indices:
+                    group = input_str[start_index:i + 1].replace(" ", "")
+                    groups.append(group)
+                    start_index = i + 1
+
+    return groups
 
 
 print(get_parentheses_groups("(( ))  ((  ) ) (   ((  )))"))
 print(get_parentheses_groups("( ( ( ( ( ( ( ) ) ) ) ) ) )"))
+print(get_parentheses_groups(""))

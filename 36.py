@@ -11,18 +11,28 @@ B = [[10, 15], [5, 1]]
 # Output: [[35, 33], [65, 65]]
 
 
-def matrix_multiply(left: list[list[int]], right: list[list[int]]) -> list[list[int]]:
-    left_num_rows = len(left)
-    left_num_cols = len(left[0])
-    right_num_cols = len(right[0])
+def matrix_multiply(
+    left_matrix: list[list[int]], right_matrix: list[list[int]]
+) -> list[list[int]]:
 
-    result = [[0 for _ in range(left_num_rows)] for _ in range(left_num_rows)]
+    num_left_rows = len(left_matrix)
+    num_left_cols = len(left_matrix[0])
+    num_right_rows = len(right_matrix)
+    num_right_cols = len(right_matrix[0])
 
-    for i in range(left_num_rows):
-        for j in range(right_num_cols):
-            for k in range(left_num_cols):
-                result[i][j] += left[i][k] * right[k][j]
-    return result
+    if num_left_cols != num_right_rows:
+        return None
+
+    result_matrix = [[0 for _ in range(num_right_cols)] for _ in range(num_left_rows)]
+
+    for i in range(num_left_rows):
+        for k in range(num_left_cols):
+            for j in range(num_right_cols):
+                result_matrix[i][j] += left_matrix[i][k] * right_matrix[k][j]
+
+    return result_matrix
 
 
 print(matrix_multiply(A, B))
+print(matrix_multiply([[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]], [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]]))
+print(matrix_multiply([[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]], [[1, 2, 3]]))

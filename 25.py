@@ -1,4 +1,4 @@
-def validate_equation(input_equation: str) -> bool:
+def is_valid_equation(input_equation: str) -> bool:
     try:
         left_num, operator, right_num, _, result_num = input_equation.split()
         if operator == "+":
@@ -10,8 +10,8 @@ def validate_equation(input_equation: str) -> bool:
         return False
 
 
-print(validate_equation("2 + 3 = 5"))
-print(validate_equation("-5 + -6 = -11"))
-print(validate_equation("-2 - 3 = -5"))
-print(validate_equation("-2 + 3 = -5"))
-print(validate_equation("not a valid equation !"))
+print(is_valid_equation("2 + 3 = 5"))
+print(is_valid_equation("-5 + -6 = -11"))
+print(is_valid_equation("-2 - 3 = -5"))
+print(is_valid_equation("-2 + 3 = -5"))
+print(is_valid_equation("not a valid equation !"))

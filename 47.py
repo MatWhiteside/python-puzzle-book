@@ -1,4 +1,7 @@
-def solve_maze(maze: list[list[int]], start_pos: tuple[int, int], end_pos: tuple[int, int]) -> bool:
+def solve_maze(
+    maze: list[list[int]], start_pos: tuple[int, int], end_pos: tuple[int, int]
+) -> bool:
+
     num_rows, num_cols = len(maze), len(maze[0])
     queue = []
     queue.append(start_pos)
@@ -16,11 +19,23 @@ def solve_maze(maze: list[list[int]], start_pos: tuple[int, int], end_pos: tuple
             (curr_x, curr_y + 1),
             (curr_x, curr_y - 1),
         ]:
-            if 0 <= exploring_x < num_rows and 0 <= exploring_y < num_cols and maze[exploring_x][exploring_y] == 0:
+            if (
+                0 <= exploring_x < num_rows
+                and 0 <= exploring_y < num_cols
+                and maze[exploring_x][exploring_y] == 0
+            ):
                 queue.append((exploring_x, exploring_y))
                 maze[exploring_x][exploring_y] = 2
 
     return False
+
+
+start = (0, 0)
+end = (2, 1)
+
+solvable_maze = [[0, 1, 1], [0, 0, 1], [1, 0, 1]]
+
+print(solve_maze(solvable_maze, start, end))
 
 
 start = (0, 1)
