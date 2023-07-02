@@ -16,12 +16,12 @@ def my_zip_one(*input_lists: list[Any]) -> list[tuple[Any, ...]]:
     if len(input_lists) == 0:
         return []
 
-    shortest_length = min(len(lst) for lst in input_lists)
+    shortest_length = min(len(input_list) for input_list in input_lists)
     zipped_result = [tuple() for _ in range(shortest_length)]
 
     for i in range(shortest_length):
-        for lst in input_lists:
-            zipped_result[i] += (lst[i],)
+        for input_list in input_lists:
+            zipped_result[i] += (input_list[i],)
 
     return zipped_result
 

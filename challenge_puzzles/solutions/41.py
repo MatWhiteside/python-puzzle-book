@@ -29,8 +29,7 @@ def int_to_roman(input_num: int) -> str:
 def roman_to_int(input_str: str) -> int:
     roman_map_swapped = {v: k for k, v in roman_map.items()}
 
-    result = 0
-    prev_value = 0
+    result, prev_value = 0, 0
 
     for char in input_str:
         value = roman_map_swapped[char]

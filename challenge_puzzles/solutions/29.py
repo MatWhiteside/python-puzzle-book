@@ -35,12 +35,14 @@ def tap_code_to_english(input_code: str) -> str:
 
     # Break up the tap code into separate words, convert each word and then
     # concatenate the result together
-    words = input_code.split("   ")
+    words_as_tap_code = input_code.split("   ")
     return " ".join(
         [
             "".join(
-                tap_code_map_inv[char] for char in word.split("  ")
-            ) for word in words
+                tap_code_map_inv[letter_as_tap_code]
+                for letter_as_tap_code in word_as_tap_code.split("  ")
+            )
+            for word_as_tap_code in words_as_tap_code
         ]
     )
 

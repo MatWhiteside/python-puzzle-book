@@ -5,7 +5,7 @@ def solve_maze(
     num_rows, num_cols = len(maze), len(maze[0])
     queue = []
     queue.append(start_pos)
-    maze[start_pos[0]][start_pos[1]] = 2
+    maze[start_pos[1]][start_pos[0]] = 2
 
     while queue:
         curr_x, curr_y = queue.pop(0)
@@ -20,26 +20,30 @@ def solve_maze(
             (curr_x, curr_y - 1),
         ]:
             if (
-                0 <= exploring_x < num_rows
-                and 0 <= exploring_y < num_cols
-                and maze[exploring_x][exploring_y] == 0
+                0 <= exploring_x < num_cols
+                and 0 <= exploring_y < num_rows
+                and maze[exploring_y][exploring_x] == 0
             ):
                 queue.append((exploring_x, exploring_y))
-                maze[exploring_x][exploring_y] = 2
+                maze[exploring_y][exploring_x] = 2
 
     return False
 
 
 start = (0, 0)
-end = (2, 1)
+end = (1, 2)
 
-solvable_maze = [[0, 1, 1], [0, 0, 1], [1, 0, 1]]
+solvable_maze = [
+    [0, 1, 1], 
+    [0, 0, 1], 
+    [1, 0, 1]
+]
 
 print(solve_maze(solvable_maze, start, end))
 
 
-start = (0, 1)
-end = (9, 1)
+start = (1, 0)
+end = (1, 9)
 
 solvable_maze = [
     [1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
