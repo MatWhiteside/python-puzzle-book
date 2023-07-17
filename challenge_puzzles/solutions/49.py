@@ -22,7 +22,7 @@ print(solve_climbing_stairs_problem(10))
 print(solve_climbing_stairs_problem(0))
 
 
-# Challenge #1
+# Bonus #1
 def solve_climbing_stairs_problem_with_output(total_stairs: int) -> list[list[int]]:
     if total_stairs == 0:
         return []
@@ -49,7 +49,7 @@ print(solve_climbing_stairs_problem_with_output(10))
 print(solve_climbing_stairs_problem_with_output(0))
 
 
-# Challenge #2
+# Bonus #2
 def solve_climbing_stairs_problem_with_three_steps_allowed(total_stairs: int) -> int:
     if total_stairs == 0:
         return 0

@@ -2,16 +2,7 @@ def find_pairs_summing_to_target(
     input_nums: list[int], target: int
 ) -> list[tuple[int, int]]:
 
-    pairs = []
-
-    for left_idx, left_num in enumerate(input_nums):
-        for _, right_num in enumerate(input_nums[left_idx + 1:]):
-
-            if left_num + right_num == target:
-                if (left_num, right_num) not in pairs:
-                    pairs.append((left_num, right_num))
-
-    return pairs
+    # Your implementation here
 
 
 print(find_pairs_summing_to_target([5, 5, 5, 5], 10))
@@ -24,17 +15,7 @@ def find_pairs_summing_to_target_bonus(
     input_nums: list[int], target: int
 ) -> list[tuple[int, int]]:
 
-    pairs = set()
-    seen = set()
-
-    for input_num in input_nums:
-
-        if target - input_num in seen:
-            pairs.add((input_num, target - input_num))
-        else:
-            seen.add(input_num)
-
-    return list(pairs)
+    # Your implementation here
 
 
 print(find_pairs_summing_to_target_bonus([5, 5, 5, 5], 10))
