@@ -6,15 +6,15 @@ def binary_search(sorted_list: list[int], value_to_find: int) -> int:
     while low <= high:
         mid = (high + low) // 2
 
-        # If x is greater, ignore left half
+        # If value_to_find is greater, ignore left half
         if value_to_find > sorted_list[mid]:
             low = mid + 1
 
-        # If x is smaller, ignore right half
+        # If value_to_find is smaller, ignore right half
         elif value_to_find < sorted_list[mid]:
             high = mid - 1
 
-        # x is present at mid
+        # value_to_find is present at mid
         else:
             return mid
 
