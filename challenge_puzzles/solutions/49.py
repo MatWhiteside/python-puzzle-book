@@ -6,11 +6,12 @@ def solve_climbing_stairs_problem(total_stairs: int) -> int:
     if total_stairs == 2:
         return 2
 
-    num_combinations = [0] * total_stairs
-    num_combinations[0] = 1
-    num_combinations[1] = 2
+    num_combinations = [0] * (total_stairs + 1)
+    num_combinations[0] = 0
+    num_combinations[1] = 1
+    num_combinations[2] = 2
 
-    for num_stairs in range(2, total_stairs):
+    for num_stairs in range(3, total_stairs + 1):
         num_combinations[num_stairs] = (
             num_combinations[num_stairs - 1] + num_combinations[num_stairs - 2]
         )
@@ -31,11 +32,12 @@ def solve_climbing_stairs_problem_with_output(total_stairs: int) -> list[list[in
     if total_stairs == 2:
         return [[1, 1], [2]]
 
-    num_combinations = [[] for _ in range(total_stairs)]
-    num_combinations[0] = [[1]]
-    num_combinations[1] = [[1, 1], [2]]
+    num_combinations = [[] for _ in range(total_stairs + 1)]
+    num_combinations[0] = []
+    num_combinations[1] = [[1]]
+    num_combinations[2] = [[1, 1], [2]]
 
-    for num_stairs in range(2, total_stairs):
+    for num_stairs in range(3, total_stairs + 1):
         for seq in num_combinations[num_stairs - 1]:
             num_combinations[num_stairs].append(seq + [1])
         for seq in num_combinations[num_stairs - 2]:
