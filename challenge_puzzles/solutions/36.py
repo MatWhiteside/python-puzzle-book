@@ -17,10 +17,9 @@ def matrix_multiply(
 
     num_left_rows = len(left_matrix)
     num_left_cols = len(left_matrix[0])
-    num_right_rows = len(right_matrix)
     num_right_cols = len(right_matrix[0])
 
-    if num_left_cols != num_right_rows:
+    if num_left_rows != num_right_cols:
         return None
 
     result_matrix = [[0 for _ in range(num_right_cols)] for _ in range(num_left_rows)]
