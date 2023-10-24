@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 class RussianDoll:
     def __init__(
             self,
@@ -13,22 +12,10 @@ class RussianDoll:
         self.colour = colour
         self.child_doll = child_doll
 
-    def get_number_of_children(self) -> int:
-        # Your implementation here
-
-    def print_unpack(self) -> None:
-        print(
-            f"Unpacking a {self.colour} doll of size: {self.size} "
-            f"with {self.get_number_of_children()} nested dolls inside."
-        )
-
 
 def unpack_dolls(doll: RussianDoll) -> int:
-    print(f"Total number of dolls unpacked: {inner_unpack_dolls(doll)}")
-
-
-def inner_unpack_dolls(doll: RussianDoll) -> int:
     # Your implementation here
+
 
 
 doll_size_one = RussianDoll(1, "red", None)
