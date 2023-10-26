@@ -20,8 +20,7 @@ class RussianDoll:
 
     def print_unpack(self) -> None:
         print(
-            f"Unpacking a {self.colour} doll of size: {self.size} "
-            f"with {self.get_number_of_children()} nested dolls inside."
+            f"Unpacking a {self.colour} doll of size: {self.size} with {self.get_number_of_children()} nested dolls inside."
         )
 
 
